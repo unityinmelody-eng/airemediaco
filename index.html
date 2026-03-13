@@ -423,16 +423,18 @@
 
   .founders-visual {
     aspect-ratio: 3/4;
-    background: var(--navy-light);
     border: 1px solid rgba(41,171,226,0.15);
     border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
     position: relative;
     overflow: hidden;
+  }
+
+  .founders-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
   }
 
   .founders-visual::after {
@@ -441,21 +443,6 @@
     bottom: 0; left: 0; right: 0;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--sky), transparent);
-  }
-
-  .founders-initials {
-    font-family: var(--serif);
-    font-size: 3rem;
-    font-weight: 700;
-    color: rgba(41,171,226,0.3);
-    line-height: 1;
-  }
-
-  .founders-placeholder {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
   }
 
   .founders-content .quote {
@@ -650,7 +637,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Aire Media <span>Co.</span></a>
-  <a href="#book" class="nav-cta">Book Your Session</a>
+  <a href="https://calendly.com/unityinmelody/30min" target="_blank" class="nav-cta">Book Your Session</a>
 </nav>
 
 <!-- HERO -->
@@ -664,7 +651,7 @@
       Book a 90-minute Brand Clarity Session with Aire Media Co. We audit your brand, tell you exactly what's costing you clients, and hand you a written action plan — for $200. Applied as credit if you move forward.
     </p>
     <div class="hero-actions">
-      <a href="#book" class="btn-primary">Book Your Session — $200</a>
+      <a href="https://calendly.com/unityinmelody/30min" target="_blank" class="btn-primary">Book Your Session — $200</a>
       <p class="hero-note"><strong>Two spots available per week.</strong> Tampa Bay businesses only.</p>
     </div>
   </div>
@@ -753,8 +740,7 @@
   <div class="container">
     <div class="founders-inner">
       <div class="founders-visual">
-        <div class="founders-initials">J+M</div>
-        <div class="founders-placeholder">Add your photo here</div>
+        <img src="founders.jpg" alt="Jhi'Aire and Myiah Huff — founders of Aire Media Co.">
       </div>
       <div class="founders-content">
         <p class="section-label">Who we are</p>
@@ -823,7 +809,7 @@
       <div class="form-submit">
         <button type="submit" class="btn-submit">Book My Brand Clarity Session — $200</button>
         <p class="form-fine">
-          After submitting, you'll receive a confirmation email with a payment link and calendar booking. <strong>Two spots available per week.</strong> Tampa Bay businesses only.
+          After submitting, you'll be redirected to book your session time on Calendly. <strong>Two spots available per week.</strong> Tampa Bay businesses only.
         </p>
       </div>
     </form>
@@ -835,29 +821,25 @@
   <div class="footer-logo">Aire Media <span>Co.</span></div>
   <div class="footer-links">
     <a href="https://instagram.com/airemediaco" target="_blank">Instagram</a>
-    <a href="mailto:jhiairehuff123@gmail.com">Contact</a>
-    <a href="#book">Book</a>
+    <a href="/cdn-cgi/l/email-protection#6802000109011a0d001d0e0e595a5b280f05090104460b0705">Contact</a>
+    <a href="https://calendly.com/unityinmelody/30min" target="_blank">Book</a>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function handleSubmit(e) {
     e.preventDefault();
     const btn = document.querySelector('.btn-submit');
-    btn.textContent = 'Submitted — We\'ll be in touch soon';
+    btn.textContent = 'Submitted — Redirecting to book your time...';
     btn.style.background = '#1a6c38';
     btn.style.color = '#fff';
     btn.disabled = true;
+    setTimeout(() => {
+      window.open('https://calendly.com/unityinmelody/30min', '_blank');
+    }, 1000);
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-</script>
-
-</body>
-</html>
+      const target =
