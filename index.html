@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Clarity Session — Aire Media Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sky: #29ABE2;
+    --sky-dark: #1a8fc4;
+    --navy: #0D1B2A;
+    --navy-mid: #152233;
+    --navy-light: #1e3347;
+    --white: #FFFFFF;
+    --off-white: #F5F3EE;
+    --warm-gray: #E8E4DC;
+    --text-muted: #8A9BAD;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2.5rem;
+    background: rgba(13,27,42,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(41,171,226,0.12);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--sky); }
+
+  .nav-cta {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sky);
+    text-decoration: none;
+    border: 1px solid rgba(41,171,226,0.4);
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+  .nav-cta:hover {
+    background: var(--sky);
+    color: var(--navy);
+    border-color: var(--sky);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 7rem 2.5rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(41,171,226,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(41,171,226,0.3), transparent);
+  }
+
+  .hero-inner {
+    max-width: 780px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--sky);
+  }
+
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--sky);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.65);
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--sky);
+    color: var(--navy);
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 2.25rem;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: #fff;
+    transform: translateY(-2px);
+  }
+
+  .hero-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .hero-note strong {
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 5rem 2.5rem; }
+
+  .container { max-width: 860px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--sky);
+  }
+
+  .section-headline {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+
+  .section-body {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+    max-width: 620px;
+  }
+
+  /* ── PROBLEM ── */
+  .problem {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(41,171,226,0.1);
+    border-bottom: 1px solid rgba(41,171,226,0.1);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 3rem;
+  }
+
+  .problem-item {
+    padding: 1.75rem;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+
+  .problem-item:hover { border-color: rgba(41,171,226,0.25); }
+
+  .problem-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--sky);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .problem-item:hover::before { opacity: 1; }
+
+  .problem-item p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+
+  /* ── OFFER ── */
+  .offer-card {
+    background: var(--navy-light);
+    border: 1px solid rgba(41,171,226,0.2);
+    border-radius: 6px;
+    padding: 3rem;
+    margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .offer-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--sky), rgba(41,171,226,0.2));
+  }
+
+  .offer-price {
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--sky);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .offer-price-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .offer-items {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .offer-items li {
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .offer-items li::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: var(--sky);
+    border-radius: 50%;
+    margin-top: 0.45em;
+    flex-shrink: 0;
+  }
+
+  .credit-note {
+    background: rgba(41,171,226,0.08);
+    border: 1px solid rgba(41,171,226,0.2);
+    border-radius: 3px;
+    padding: 1rem 1.25rem;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  }
+
+  .credit-note strong { color: var(--sky); font-weight: 500; }
+
+  /* ── IS THIS FOR YOU ── */
+  .fit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .fit-col h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .fit-col.yes h3 { color: var(--sky); }
+  .fit-col.no h3 { color: rgba(255,255,255,0.35); }
+
+  .fit-list { list-style: none; }
+
+  .fit-list li {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .fit-list li::before {
+    font-size: 0.75rem;
+    margin-top: 0.15em;
+    flex-shrink: 0;
+  }
+
+  .fit-col.yes .fit-list li::before { content: '✓'; color: var(--sky); }
+  .fit-col.no .fit-list li::before { content: '✗'; color: rgba(255,255,255,0.2); }
+
+  /* ── FOUNDERS ── */
+  .founders {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(41,171,226,0.08);
+    border-bottom: 1px solid rgba(41,171,226,0.08);
+  }
+
+  .founders-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .founders-visual {
+    aspect-ratio: 3/4;
+    background: var(--navy-light);
+    border: 1px solid rgba(41,171,226,0.15);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .founders-visual::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--sky), transparent);
+  }
+
+  .founders-initials {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(41,171,226,0.3);
+    line-height: 1;
+  }
+
+  .founders-placeholder {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+
+  .founders-content .quote {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+  }
+
+  .founders-content p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 1rem;
+  }
+
+  .founders-names {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-top: 1.5rem;
+  }
+
+  /* ── FORM ── */
+  .form-section { background: var(--navy); }
+
+  .form-wrap {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .form-header .section-label { justify-content: center; }
+  .form-header .section-label::before { display: none; }
+
+  form { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .field-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  input, textarea, select {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+    color: var(--white);
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 300;
+    padding: 0.85rem 1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+    width: 100%;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: rgba(255,255,255,0.2);
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: rgba(41,171,226,0.5);
+  }
+
+  textarea { resize: vertical; min-height: 110px; }
+
+  select option { background: var(--navy-mid); }
+
+  .form-submit {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--sky);
+    color: var(--navy);
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1.1rem 2rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-submit:hover {
+    background: var(--white);
+    transform: translateY(-2px);
+  }
+
+  .form-fine {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .form-fine strong { color: rgba(255,255,255,0.4); font-weight: 400; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .footer-logo span { color: var(--sky); }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--sky); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-label { animation: fadeUp 0.6s ease 0.1s both; }
+  .hero-headline { animation: fadeUp 0.6s ease 0.2s both; }
+  .hero-sub { animation: fadeUp 0.6s ease 0.35s both; }
+  .hero-actions { animation: fadeUp 0.6s ease 0.5s both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    nav { padding: 1rem 1.25rem; }
+    section { padding: 3.5rem 1.25rem; }
+    .hero { padding: 6rem 1.25rem 4rem; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .offer-items { grid-template-columns: 1fr; }
+    .fit-grid { grid-template-columns: 1fr; }
+    .founders-inner { grid-template-columns: 1fr; }
+    .founders-visual { aspect-ratio: 16/9; }
+    .field-group { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Aire Media <span>Co.</span></a>
+  <a href="#book" class="nav-cta">Book Your Session</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-label">Tampa Bay Branding Agency</p>
+    <h1 class="hero-headline">
+      Your business is better<br>than your brand is<br><em>telling people.</em>
+    </h1>
+    <p class="hero-sub">
+      Book a 90-minute Brand Clarity Session with Aire Media Co. We audit your brand, tell you exactly what's costing you clients, and hand you a written action plan — for $200. Applied as credit if you move forward.
+    </p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-primary">Book Your Session — $200</a>
+      <p class="hero-note"><strong>Two spots available per week.</strong> Tampa Bay businesses only.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="container">
+    <p class="section-label">The real problem</p>
+    <h2 class="section-headline">You're losing clients you never knew you had.</h2>
+    <p class="section-body">
+      Most Tampa Bay business owners know something feels off. The Instagram looks inconsistent. The website doesn't convert. Competitors who do less are getting more attention. It's not your product. It's not your price.
+    </p>
+    <div class="problem-grid">
+      <div class="problem-item">
+        <p>Your outside doesn't match your inside. You built something real — but your brand doesn't show it. The right clients scroll past before they ever get to know what you do.</p>
+      </div>
+      <div class="problem-item">
+        <p>Competitors with half your talent look twice as credible. Not because they're better. Because they invested in looking like what they are. That's fixable.</p>
+      </div>
+      <div class="problem-item">
+        <p>You've tried fixing it yourself. New logo here, new colors there. But without a real strategy behind it, nothing feels cohesive and it still doesn't convert.</p>
+      </div>
+      <div class="problem-item">
+        <p>You're not sure what's actually wrong. That's exactly what the Brand Clarity Session is built for — honest eyes on your brand from people who've done this for themselves first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section>
+  <div class="container">
+    <p class="section-label">The session</p>
+    <h2 class="section-headline">90 minutes. Real talk. No fluff.</h2>
+    <p class="section-body">Here's exactly what happens in your Brand Clarity Session.</p>
+    <div class="offer-card">
+      <div class="offer-price">$200</div>
+      <div class="offer-price-note">Brand Clarity Session — 90 minutes</div>
+      <ul class="offer-items">
+        <li>Full audit of your Instagram, website, and content</li>
+        <li>Identify exactly where your brand is losing people</li>
+        <li>Positioning recommendation built around who you are</li>
+        <li>Written action plan — ready to use immediately</li>
+        <li>Honest assessment of what needs to change and why</li>
+        <li>Clear next step — whether that's us or not</li>
+      </ul>
+      <div class="credit-note">
+        <strong>Your $200 applies as credit</strong> toward a Digital Brand Reset if you decide to move forward. You're not paying for a sales call — you're getting real strategic value from day one.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIT -->
+<section style="background: var(--navy-mid); border-top: 1px solid rgba(41,171,226,0.08);">
+  <div class="container">
+    <p class="section-label">Is this for you?</p>
+    <h2 class="section-headline">We're not for everyone. That's the point.</h2>
+    <div class="fit-grid">
+      <div class="fit-col yes">
+        <h3>This is for you if —</h3>
+        <ul class="fit-list">
+          <li>Your work is good but your brand doesn't show it</li>
+          <li>You're losing clients to competitors who just look better</li>
+          <li>You've tried fixing it yourself and it still feels off</li>
+          <li>You're ready to actually invest in getting it right</li>
+          <li>You want honesty, not just validation</li>
+        </ul>
+      </div>
+      <div class="fit-col no">
+        <h3>This isn't for you if —</h3>
+        <ul class="fit-list">
+          <li>You're looking for the cheapest option available</li>
+          <li>You're not ready to make real changes</li>
+          <li>You want templates, not strategy</li>
+          <li>You need someone to just make it look pretty</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section class="founders">
+  <div class="container">
+    <div class="founders-inner">
+      <div class="founders-visual">
+        <div class="founders-initials">J+M</div>
+        <div class="founders-placeholder">Add your photo here</div>
+      </div>
+      <div class="founders-content">
+        <p class="section-label">Who we are</p>
+        <p class="quote">"We help you look like what you actually are."</p>
+        <p>We're Jhi'Aire & Myiah Huff — founders of Aire Media Co. and two of Tampa Bay's working creatives. We've built our own brands, grown our own audiences, run our own events, and navigated every digital challenge our clients face.</p>
+        <p>We didn't read about content creation. We live it. Myiah's background as a visual artist means we don't just produce content that's visible — we produce content that's beautiful. Jhi'Aire's background in audio, music, and brand strategy means everything we build has real intention behind it.</p>
+        <p>We work with a small number of clients at a time so we can go deep. Generic is not what we do.</p>
+        <div class="founders-names">Jhi'Aire & Myiah Huff · @airemediaco · Tampa Bay, FL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="book">
+  <div class="form-wrap">
+    <div class="form-header">
+      <p class="section-label">Book your session</p>
+      <h2 class="section-headline" style="text-align: center;">Ready to look like what you actually are?</h2>
+      <p class="section-body" style="text-align: center; margin: 0 auto;">Fill out the form below. We'll review your brand before we even get on the call so we can make every minute count.</p>
+    </div>
+
+    <form id="bookingForm" onsubmit="handleSubmit(event)">
+      <div class="field-group">
+        <div class="field">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
+        </div>
+        <div class="field">
+          <label for="businessName">Business Name</label>
+          <input type="text" id="businessName" name="businessName" placeholder="Your business" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@yourbusiness.com" required>
+      </div>
+
+      <div class="field">
+        <label for="instagram">Instagram or Website URL</label>
+        <input type="text" id="instagram" name="instagram" placeholder="@yourbusiness or yoursite.com">
+      </div>
+
+      <div class="field">
+        <label for="industry">What kind of business do you run?</label>
+        <select id="industry" name="industry">
+          <option value="" disabled selected>Select your industry</option>
+          <option>Photography / Videography</option>
+          <option>Restaurant / Food & Beverage</option>
+          <option>Health & Wellness</option>
+          <option>Retail / Product-based</option>
+          <option>Creative / Artist / Musician</option>
+          <option>Service-based Business</option>
+          <option>Real Estate</option>
+          <option>Nonprofit / Community Organization</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="challenge">What's the #1 thing about your brand that isn't working right now?</label>
+        <textarea id="challenge" name="challenge" placeholder="Be honest — the more specific you are, the more we can prepare..."></textarea>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn-submit">Book My Brand Clarity Session — $200</button>
+        <p class="form-fine">
+          After submitting, you'll receive a confirmation email with a payment link and calendar booking. <strong>Two spots available per week.</strong> Tampa Bay businesses only.
+        </p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Aire Media <span>Co.</span></div>
+  <div class="footer-links">
+    <a href="https://instagram.com/airemediaco" target="_blank">Instagram</a>
+    <a href="mailto:jhiairehuff123@gmail.com">Contact</a>
+    <a href="#book">Book</a>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.querySelector('.btn-submit');
+    btn.textContent = 'Submitted — We\'ll be in touch soon';
+    btn.style.background = '#1a6c38';
+    btn.style.color = '#fff';
+    btn.disabled = true;
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
